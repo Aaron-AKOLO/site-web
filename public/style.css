@@ -47,7 +47,7 @@ nav a:hover{
 /* ================= HERO ================= */
 
 .hero{
-    height:100vh;
+    min-height:100vh;
     background:url("/hero.jpg") center/cover no-repeat;
     display:flex;
     justify-content:center;
@@ -100,7 +100,7 @@ section h2{
     color:gold;
 }
 
-/* ================= BIO PROFESSIONNEL ================= */
+/* ================= BIO ================= */
 
 .bio-section{
     min-height:100vh;
@@ -114,6 +114,7 @@ section h2{
 
 .bio-image img{
     width:350px;
+    max-width:100%;
     border-radius:25px;
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
@@ -164,26 +165,7 @@ section h2{
     margin-bottom:10px;
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    .bio-section{
-        padding-top:150px;
-        text-align:center;
-    }
-
-    .bio-image img{
-        width:100%;
-        max-width:320px;
-    }
-
-    .bio-content h2{
-        font-size:35px;
-    }
-}
-
-/* ================= VIDEO PROFESSIONNEL ================= */
+/* ================= VIDEO ================= */
 
 .video-section{
     padding:120px 10%;
@@ -197,15 +179,11 @@ section h2{
     margin-bottom:60px;
 }
 
-/* ===== GRID ===== */
-
 .video-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:35px;
 }
-
-/* ===== CARD ===== */
 
 .video-card{
     background:#1a1a1a;
@@ -231,24 +209,7 @@ section h2{
     font-size:20px;
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    .video-section{
-        padding-top:150px;
-    }
-
-    .video-section h2{
-        font-size:35px;
-    }
-
-    .video-card iframe{
-        height:220px;
-    }
-}
-
-/* ================= PLAYLIST PROFESSIONNEL ================= */
+/* ================= PLAYLIST ================= */
 
 .playlist-section{
     min-height:100vh;
@@ -277,8 +238,6 @@ section h2{
     font-size:18px;
 }
 
-/* ===== SPOTIFY BOX ===== */
-
 .spotify-box{
     background:#1a1a1a;
     padding:30px;
@@ -298,28 +257,7 @@ section h2{
     border-radius:20px;
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    .playlist-section{
-        padding-top:150px;
-    }
-
-    .playlist-content h2{
-        font-size:35px;
-    }
-
-    .spotify-box{
-        padding:15px;
-    }
-
-    .spotify-box iframe{
-        height:400px;
-    }
-}
-
-/* ================= GALERIE PROFESSIONNEL ================= */
+/* ================= GALERIE ================= */
 
 .galerie-section{
     min-height:100vh;
@@ -339,15 +277,11 @@ section h2{
     font-size:18px;
 }
 
-/* ===== GRID ===== */
-
 .galerie-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
-
-/* ===== CARD ===== */
 
 .galerie-card{
     overflow:hidden;
@@ -363,31 +297,12 @@ section h2{
     transition:0.5s;
 }
 
-/* ===== HOVER ===== */
-
 .galerie-card:hover img{
     transform:scale(1.1);
     filter:brightness(0.7);
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    .galerie-section{
-        padding-top:150px;
-    }
-
-    .galerie-section h2{
-        font-size:35px;
-    }
-
-    .galerie-card img{
-        height:300px;
-    }
-}
-
-/* ================= CONTACT PROFESSIONNEL ================= */
+/* ================= CONTACT ================= */
 
 .contact-section{
     min-height:100vh;
@@ -396,8 +311,6 @@ section h2{
     justify-content:center;
     align-items:center;
 }
-
-/* ===== CONTAINER ===== */
 
 .contact-container{
     width:100%;
@@ -410,8 +323,6 @@ section h2{
     border-radius:30px;
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
-
-/* ===== INFO ===== */
 
 .contact-info h2{
     font-size:45px;
@@ -437,8 +348,6 @@ section h2{
 .info-box span{
     font-size:25px;
 }
-
-/* ===== FORM ===== */
 
 .contact-form-box form{
     display:flex;
@@ -482,25 +391,7 @@ section h2{
     text-align:center;
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:768px){
-
-    .contact-section{
-        padding-top:150px;
-    }
-
-    .contact-container{
-        grid-template-columns:1fr;
-        padding:25px;
-    }
-
-    .contact-info h2{
-        font-size:35px;
-    }
-}
-
-/* ===== BOUTON DECOUVRIR ===== */
+/* ================= BOUTON DECOUVRIR ================= */
 
 .btn{
     display:inline-block;
@@ -521,7 +412,7 @@ section h2{
     transform:translateY(-5px);
 }
 
-/* ===== RESEAUX SOCIAUX ===== */
+/* ================= RESEAUX SOCIAUX ================= */
 
 .socials{
     display:flex;
@@ -560,6 +451,7 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 
+/* ✅ Tablette */
 @media(max-width:768px){
 
     header{
@@ -569,11 +461,14 @@ footer{
 
     nav{
         margin-top:15px;
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
     nav a{
         display:block;
         margin:10px 0;
+        font-size:15px;
     }
 
     .hero h2{
@@ -587,4 +482,39 @@ footer{
     section h2{
         font-size:30px;
     }
+
+    .socials a{
+        flex:1 1 45%;
+        text-align:center;
+    }
 }
+
+/* ✅ Mobile */
+@media(max-width:480px){
+
+    header h1{
+        font-size:22px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section h2{
+        font-size:24px;
+    }
+
+    .socials a{
+        flex:1 1 100%;
+        margin-bottom:10px;
+    }
+
+    .galerie-card img{
+        height:220px;
+    }
+}
+
