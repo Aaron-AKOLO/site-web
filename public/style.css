@@ -493,20 +493,24 @@ footer{
     }
 }
 
-/* ✅ Mobile */
 @media(max-width:480px){
-  .contact-container{
-    grid-template-columns:1fr;
-    padding:15px;
-  }
-  .contact-info h2{
-    font-size:26px;
-  }
-  .contact-form-box input,
-  .contact-form-box textarea,
-  .contact-form-box button{
-    font-size:14px;
-    padding:12px;
-  }
+    .hero-content{
+        padding:20px; /* réduit le bloc */
+    }
+
+    .hero h2{
+        font-size:26px; /* plus petit titre */
+        line-height:1.2; /* évite que ça déborde */
+    }
+
+    .hero p{
+        font-size:14px; /* texte plus lisible sur petit écran */
+    }
+
+    .hero button{
+        font-size:14px;
+        padding:10px 20px;
+    }
 }
+
 
