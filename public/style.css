@@ -453,21 +453,19 @@ footer{
 
 /* ✅ Tablette */
 @media(max-width:768px){
-
     header{
         flex-direction:column;
-        padding:20px;
+        padding:15px 20px;
     }
 
     nav{
-        margin-top:15px;
+        margin-top:10px;
         flex-wrap:wrap;
         justify-content:center;
     }
 
     nav a{
-        display:block;
-        margin:10px 0;
+        margin:8px;
         font-size:15px;
     }
 
@@ -479,8 +477,9 @@ footer{
         font-size:18px;
     }
 
-    section h2{
-        font-size:30px;
+    .bio-image img{
+        width:100%;
+        max-width:300px;
     }
 
     .socials a{
@@ -491,7 +490,6 @@ footer{
 
 /* ✅ Mobile */
 @media(max-width:480px){
-
     header h1{
         font-size:22px;
     }
@@ -506,6 +504,11 @@ footer{
 
     section h2{
         font-size:24px;
+    }
+
+    .socials{
+        flex-direction:column;
+        gap:15px;
     }
 
     .socials a{
