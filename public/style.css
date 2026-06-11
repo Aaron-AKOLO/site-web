@@ -434,7 +434,6 @@ section h2{
     transition:0.3s;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
-
 .socials a:hover{
     background:white;
     transform:translateY(-5px);
@@ -453,6 +452,7 @@ footer{
 
 /* ✅ Tablette */
 @media(max-width:768px){
+
     header{
         flex-direction:column;
         padding:15px 20px;
@@ -465,7 +465,8 @@ footer{
     }
 
     nav a{
-        margin:8px;
+        display:block;
+        margin:8px 0;
         font-size:15px;
     }
 
@@ -475,6 +476,10 @@ footer{
 
     .hero p{
         font-size:18px;
+    }
+
+    section h2{
+        font-size:30px;
     }
 
     .bio-image img{
@@ -490,6 +495,7 @@ footer{
 
 /* ✅ Mobile */
 @media(max-width:480px){
+
     header h1{
         font-size:22px;
     }
