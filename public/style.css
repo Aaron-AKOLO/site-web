@@ -512,5 +512,58 @@ footer{
         padding:10px 20px;
     }
 }
+    header{
+        flex-direction:column;
+        padding:10px 15px; /* réduit le header */
+    }
 
+    header h1{
+        font-size:20px;
+    }
+
+    nav a{
+        display:block;
+        margin:6px 0;
+        font-size:14px;
+    }
+
+    .hero-content{
+        padding:15px; /* réduit le bloc */
+    }
+
+    .hero h2{
+        font-size:24px; /* plus petit titre */
+        line-height:1.2;
+    }
+
+    .hero p{
+        font-size:13px; /* texte lisible */
+    }
+
+    .hero button{
+        font-size:13px;
+        padding:8px 18px;
+    }
+
+    section h2{
+        font-size:22px;
+    }
+
+    .contact-container{
+        grid-template-columns:1fr; /* une seule colonne */
+        padding:15px;
+    }
+
+    .contact-info h2{
+        font-size:26px;
+    }
+
+    .contact-form-box input,
+    .contact-form-box textarea,
+    .contact-form-box button{
+        font-size:14px;
+        padding:12px;
+        width:100%; /* champs bien étirés */
+    }
+}
 
