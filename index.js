@@ -63,7 +63,7 @@ app.post("/contact", async (req, res) => {
               <table style="width:100%; font-family: 'Open Sans', Arial; background:#F9F9F9; border:1px solid #DDD;">
                 <tr style="background:#111111; color:#FFD700;">
                   <td style="padding:15px; font-size:20px; font-family:'Montserrat';">
-                    <img src="/public/image/logo.jpeg" alt="Logo Donjuan JR" style="height:40px; vertical-align:middle; margin-right:10px;">
+                    <img src="/image/logo.jpeg" alt="Logo Donjuan JR" style="height:40px; vertical-align:middle; margin-right:10px;">
                     🎶 Nouveau message depuis le site de Donjuan JR
                   </td>
                 </tr>
@@ -98,8 +98,12 @@ app.post("/contact", async (req, res) => {
         res.json({ message: "❌ Erreur lors de l'envoi." });
     }
 });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Serveur lancé sur le port ${PORT}`);
+});
 
 // SERVEUR
-app.listen(3000, () => {
-    console.log("Serveur lancé sur http://localhost:3000");
-});
+// app.listen(3000, () => {
+    // console.log("Serveur lancé sur http://localhost:3000");
+// });
