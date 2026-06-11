@@ -495,35 +495,18 @@ footer{
 
 /* ✅ Mobile */
 @media(max-width:480px){
-
-    header h1{
-        font-size:22px;
-    }
-
-    .hero h2{
-        font-size:28px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    section h2{
-        font-size:24px;
-    }
-
-    .socials{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .socials a{
-        flex:1 1 100%;
-        margin-bottom:10px;
-    }
-
-    .galerie-card img{
-        height:220px;
-    }
+  .contact-container{
+    grid-template-columns:1fr;
+    padding:15px;
+  }
+  .contact-info h2{
+    font-size:26px;
+  }
+  .contact-form-box input,
+  .contact-form-box textarea,
+  .contact-form-box button{
+    font-size:14px;
+    padding:12px;
+  }
 }
 
