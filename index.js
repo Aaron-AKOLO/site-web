@@ -11,6 +11,9 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// Log pour vérifier le chemin des vues
+console.log("📂 Chemin des vues utilisé par Express:", app.get("views"));
+
 // fichiers statiques
 app.use(express.static("public"));
 
@@ -43,7 +46,7 @@ app.post("/contact", async (req, res) => {
         return res.json({ message: "❌ Impossible de vérifier l'adresse email." });
     }
 
-    // Config SMTP Gmail
+    // Config SMTP Gmail (identifiants en clair comme avant)
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
@@ -75,19 +78,6 @@ app.post("/contact", async (req, res) => {
                     ${message}
                   </td>
                 </tr>
-                <tr>
-                  <td style="padding:20px; text-align:center;">
-                    <a href="mailto:${email}" 
-                       style="background:#FFD700; color:#111111; padding:10px 20px; text-decoration:none; font-weight:bold; border-radius:5px; font-family:'Montserrat';">
-                      ✉️ Répondre à l’artiste
-                    </a>
-                  </td>
-                </tr>
-                <tr style="background:#EEE;">
-                  <td style="padding:10px; font-size:12px; text-align:center; font-family:'Playfair Display'; color:#555;">
-                    Ce message a été envoyé automatiquement via le site officiel de Donjuan JR.
-                  </td>
-                </tr>
               </table>
             `
         });
@@ -98,12 +88,8 @@ app.post("/contact", async (req, res) => {
         res.json({ message: "❌ Erreur lors de l'envoi." });
     }
 });
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Serveur lancé sur le port ${PORT}`);
+    console.log(`🚀 Serveur lancé sur le port ${PORT}`);
 });
-
-// SERVEUR
-// app.listen(3000, () => {
-    // console.log("Serveur lancé sur http://localhost:3000");
-// });
