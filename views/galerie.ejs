@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - DONJUAN JR</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .galerie-section {
+            padding: 40px;
+            text-align: center;
+            color: #FFD700;
+            background-color: #111;
+        }
+        .galerie-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .galerie-text {
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .galerie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .galerie-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
+        }
+        .galerie-card img:hover {
+            transform: scale(1.05);
+        }
+        header {
+            background: #111;
+            color: #FFD700;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        nav a {
+            color: #FFD700;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #111;
+            color: #FFD700;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DONJUAN JR </h1>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/bio">Bio</a>
+        <a href="/galerie">Galerie</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<section class="galerie-section">
+    <h2>Galerie Photos</h2>
+    <p class="galerie-text">Découvrez les meilleurs moments, performances et shootings artistiques.</p>
+
+    <!-- Diaporama -->
+    <div class="slideshow-container">
+        <div class="slide"><img src="/image/1.jpeg" alt="Photo 1" onclick="openLightbox(this)"></div>
+        <div class="slide"><img src="/image/2.jpeg" alt="Photo 2" onclick="openLightbox(this)"></div>
+        <div class="slide"><img src="/image/3.jpeg" alt="Photo 3" onclick="openLightbox(this)"></div>
+        <div class="slide"><img src="/image/4.jpeg" alt="Photo 4" onclick="openLightbox(this)"></div>
+        <div class="slide"><img src="/image/5.jpeg" alt="Photo 5" onclick="openLightbox(this)"></div>
+        <div class="slide"><img src="/image/6.jpeg" alt="Photo 6" onclick="openLightbox(this)"></div>
+
+        <!-- Flèches -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Points indicateurs -->
+    <div style="text-align:center; margin-top:15px;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Image en grand">
+</div>
+
+<style>
+    .slide { display: none; }
+    .slide img { width: 70%; border-radius: 8px; cursor: pointer; }
+    .prev, .next {
+        cursor: pointer; position: absolute; top: 50%;
+        padding: 16px; color: #FFD700; font-size: 30px; font-weight: bold;
+    }
+    .prev { left: 0; } .next { right: 0; }
+    .prev:hover, .next:hover { color: #fff; }
+
+    .dot {
+        cursor: pointer;
+        height: 15px; width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    .active, .dot:hover { background-color: #FFD700; }
+
+    .lightbox {
+        display: none; position: fixed; z-index: 999;
+        left: 0; top: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9); text-align: center;
+    }
+    .lightbox img { max-width: 90%; max-height: 80%; margin-top: 5%; border-radius: 8px; }
+    .lightbox .close { position: absolute; top: 20px; right: 30px; color: #FFD700; font-size: 40px; cursor: pointer; }
+</style>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Navigation manuelle
+    function plusSlides(n) { showSlides(slideIndex += n); }
+    function currentSlide(n) { showSlides(slideIndex = n); }
+
+    // Affichage des slides
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+        for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+
+    // Défilement automatique
+    setInterval(() => { plusSlides(1); }, 4000);
+
+    // Lightbox
+    function openLightbox(img) {
+        document.getElementById("lightbox").style.display = "block";
+        document.getElementById("lightbox-img").src = img.src;
+    }
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
+
+
+</section>
+
+<footer>
+    © 2026 DONJUAN JR - Site Officiel
+</footer>
+
+</body>
+</html>

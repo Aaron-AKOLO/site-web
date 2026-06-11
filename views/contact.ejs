@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO GOOGLE -->
+    <meta name="description" content="Site officiel de DONJUAN JR - musique, vidéos, galerie et actualités">
+    <meta name="keywords" content="DONJUAN JR, artiste, musique, clips, vidéos">
+    <meta name="author" content="DONJUAN JR">
+
+    <title>DONJUAN JR - Site Officiel</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>DONJUAN JR</h1>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/bio">Bio</a>
+        <a href="/galerie">Galerie</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- INFOS -->
+        <div class="contact-info">
+            <h2>Contactez-moi</h2>
+            <p>
+                Pour collaborations, événements, productions
+                ou partenariats artistiques.
+            </p>
+
+            <div class="info-box">
+                <span>📧</span>
+                <p>lakumutrimenokosh@gmail.com</p>
+            </div>
+
+            <div class="info-box">
+                <span>📞</span>
+                <p>+33 633 88 29 95</p>
+            </div>
+
+            <div class="info-box">
+                <span>📍</span>
+                <p>Paris, FRANCE</p>
+            </div>
+        </div>
+
+        <!-- FORMULAIRE -->
+        <div class="contact-form-box">
+            <form id="contactForm" action="/contact" method="POST">
+                <input type="text" name="nom" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer Message</button>
+            </form>
+            <p id="rep"></p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 DONJUAN JR
+</footer>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch("/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            const rep = document.getElementById("rep");
+
+            rep.innerText = result.message;
+
+            // Style visuel selon succès ou erreur
+            if (result.message.includes("✅")) {
+                rep.style.color = "green";
+                this.reset();
+            } else {
+                rep.style.color = "red";
+            }
+        } catch (error) {
+            document.getElementById("rep").innerText = "❌ Erreur lors de l'envoi.";
+            document.getElementById("rep").style.color = "red";
+            console.error(error);
+        }
+    });
+</script>
+
+</body>
+</html>
