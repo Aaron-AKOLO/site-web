@@ -66,7 +66,7 @@ app.post("/contact", async (req, res) => {
               <table style="width:100%; font-family: 'Open Sans', Arial; background:#F9F9F9; border:1px solid #DDD;">
                 <tr style="background:#111111; color:#FFD700;">
                   <td style="padding:15px; font-size:20px; font-family:'Montserrat';">
-                    <img src="/public/image/logo.jpeg" alt="Logo Donjuan JR" style="height:40px; vertical-align:middle; margin-right:10px;">
+                    <img src="https://site-web-git-main-bst-tech-s-projects.vercel.app/image/logo.jpeg" alt="Logo Donjuan JR" style="height:40px; vertical-align:middle; margin-right:10px;">
                     🎶 Nouveau message depuis le site de Donjuan JR
                   </td>
                 </tr>
