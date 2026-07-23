@@ -52,7 +52,7 @@ app.post("/contact", async (req, res) => {
         port: 587,
         secure: false,
         auth: {
-            user: "lakumutrimenokosh@gmail.com", // ton adresse Gmail
+            user: "Operadeuxiemedunom@gmail.com", // ton adresse Gmail
             pass: "yrqg hsjs okqc bblv"          // mot de passe d’application
         }
     });
@@ -60,7 +60,7 @@ app.post("/contact", async (req, res) => {
     try {
         await transporter.sendMail({
             from: `"${nom}" <${email}>`,
-            to: "lakumutrimenokosh@gmail.com", // destinataire
+            to: "Operadeuxiemedunom@gmail.com", // destinataire
             subject: "🎶 Nouveau message depuis le site de Donjuan JR",
             html: `
               <table style="width:100%; font-family: 'Open Sans', Arial; background:#F9F9F9; border:1px solid #DDD;">
